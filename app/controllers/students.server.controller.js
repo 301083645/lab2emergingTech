@@ -70,8 +70,12 @@ exports.list = function (req, res, next) {
 //'read' controller method to display a user
 exports.read = function(req, res) {
 	// Use the 'response' object to send a JSON response
+	console.log('req.student: ' + req.student);
+	console.dir(req.body);	
 	res.json(req.student);
+	
 };
+
 //
 // 'userByID' controller method to find a user by its id
 exports.studentByID = function (req, res, next, id) {
@@ -84,6 +88,7 @@ exports.studentByID = function (req, res, next, id) {
 			return next(err);
 		} else {
 			// Set the 'req.user' property
+			console.log("Student")
             req.student = student;
             console.log(student);
 			// Call the next middleware
